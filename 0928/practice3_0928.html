@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<!-- ======================================================================= -->
+<!-- [규칙 1] HTML5 표준 모드 선언 (브라우저 쿼크 모드 진입 방지)                 -->
+<!-- ======================================================================= -->
+<html lang="ko">
+<!-- [규칙 2] 스크린리더 TTS 발음 및 검색엔진 타깃팅을 위한 한국어(ko) 선언      -->
+
+<head>
+    <!-- [규칙 3] 한글 깨짐 방지를 위해 head 최상단(1024바이트 이내) 인코딩 선언 -->
+    <meta charset="UTF-8">
+
+    <!-- [규칙 4] 모바일 반응형 뷰포트 배율 선언 (980px 축소 렌더링 방지)         -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- [규칙 5] 브라우저 상단 탭 및 북마크에 노출되는 문서 제목 (h1과 분리)     -->
+    <title>학습 포털 - Frontend Learning Portal</title>
+
+    <!-- [규칙 6] 외부 스타일시트 연결 (화면 구조 위에 스타일을 입히기 위한 준비) -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- ===================================================================== -->
+    <!-- 1. HEADER LANDMARK: 사이트의 머리말 (로고 및 글로벌 내비게이션 바)      -->
+    <!-- ===================================================================== -->
+    <header>
+        <!-- [h1: 페이지 본문의 최상위 대제목 - 문서 전체에서 단 1개 권장]        -->
+        <h1>학습 포털</h1>
+
+        <!-- [nav: 주요 링크들의 묶음 선언]                                      -->
+        <nav aria-label="메인 메뉴">
+            <!-- [ul: 순서가 바뀌어도 무방한 비순차 목록]                           -->
+            <ul>
+                <!-- [내부 앵커 링크: href의 해시(#)와 대상 section의 id가 1:1 일치]   -->
+                <li><a href="#notice">과정 소개</a></li>
+                <li><a href="#schedule">학습 일정</a></li>
+                <li><a href="#resources">학습 자료</a></li>
+                <li><a href="#faq">자주 묻는 질문</a></li>
+                <li><a href="#signup">수강 신청</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- ===================================================================== -->
+    <!-- 2. MAIN LANDMARK: 페이지의 고유 핵심 본문 (문서 전체에서 오직 단 1개)  -->
+    <!-- ===================================================================== -->
+    <main>
+
+        <!-- ------------------------------------------------------------------- -->
+        <!-- Section 1. 과정 소개 및 공지사항 구역                                -->
+        <!-- ------------------------------------------------------------------- -->
+        <section id="notice">
+            <!-- [h2: section은 설명 가능한 고유 주제가 있어야 하며 제목 필수]        -->
+            <h2>과정 소개 및 안내</h2>
+
+            <p>
+                <!-- [strong: 단순 굵기가 아닌 정보의 중대함/핵심 본질을 음성 강조]     -->
+                <strong>HTML로 정보 구조를 만들고</strong> CSS로 화면을 정리한 뒤 JavaScript로 사용자 상호작용을 연결합니다.
+            </p>
+
+            <!-- [figure: 본문과 결합된 시각 자료와 캡션 설명 묶음]                   -->
+            <figure>
+                <!-- [img: 현재 HTML 기준 상대경로 및 정보성 대체 텍스트 alt 제공]      -->
+                <img src="./assets/placeholder.svg" alt="HTML과 웹 구조를 실습 중인 학습자의 모습">
+                <!-- [figcaption: 화면에 표시되는 공식 캡션 (alt 내용과 중복 복제 금지)] -->
+                <figcaption>부트캠프 웹 프론트엔드 1일차 실습 화면 와이어프레임 구조도</figcaption>
+            </figure>
+
+            <!-- [슬라이드 20 & 61: 독립 배포 가능한 완결된 공지 article 카드]       -->
+            <article>
+                <h3>시스템 정기 점검 안내</h3>
+                <p>더 나은 서비스 제공을 위해 매월 마지막 주 수요일 02:00 ~ 06:00 시스템 점검이 진행됩니다.</p>
+            </article>
+        </section>
+
+        <!-- ------------------------------------------------------------------- -->
+        <!-- Section 2. 수강 절차 및 2차원 데이터 학습 일정표 구역                -->
+        <!-- ------------------------------------------------------------------- -->
+        <section id="schedule">
+            <h2>학습 커리큘럼 및 일정</h2>
+
+            <!-- [ol: 1단계부터 3단계까지 진행 순서가 절대적으로 중요한 순차 목록]    -->
+            <h3>수강 절차</h3>
+            <ol>
+                <li>회원가입 후 수강 신청서 제출하기</li>
+                <li>학습 안내 메일 및 강의 자료 확인하기</li>
+                <li>온라인 실습 환경에서 학습 시작하기</li>
+            </ol>
+
+            <!-- [table: 관계가 성립하는 다차원 데이터를 표현하는 시맨틱 표]          -->
+            <table>
+                <!-- [caption: 표 자체의 고유한 공식 명칭 선언]                          -->
+                <caption>부트캠프 주간 학습 일정 및 교육 장소 안내</caption>
+                <thead>
+                    <tr>
+                        <!-- [th scope="col": 아래쪽 세로 열 전체의 기준 머리글임을 명시]    -->
+                        <th scope="col">날짜</th>
+                        <th scope="col">주제</th>
+                        <th scope="col">장소</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- [행·열 계약: thead의 3열 머리글 기준에 맞추어 모든 tr마다 정확히 3개 td 배치] -->
+                    <tr>
+                        <td>4월 1일 (월)</td>
+                        <td>웹 기술 개요와 HTML 문서 구조</td>
+                        <td>강의실 A</td>
+                    </tr>
+                    <tr>
+                        <td>4월 2일 (화)</td>
+                        <td>CSS 기초와 반응형 레이아웃</td>
+                        <td>강의실 A</td>
+                    </tr>
+                    <tr>
+                        <td>4월 3일 (수)</td>
+                        <td>JavaScript 핵심 문법과 DOM</td>
+                        <td>실습실 B</td>
+                    </tr>
+                    <tr>
+                        <td>4월 4일 (목)</td>
+                        <td>비동기 통신과 프론트엔드 프로젝트</td>
+                        <td>실습실 B</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- ------------------------------------------------------------------- -->
+        <!-- Section 3. 독립 자립형 학습 자료 카드 모음 구역                      -->
+        <!-- ------------------------------------------------------------------- -->
+        <section id="resources">
+            <h2>학습 자료실</h2>
+
+            <!-- [article: 떼어내도 온전히 이해 가능한 독립형 자료 카드 1]            -->
+            <article>
+                <h3>HTML 구조 체크리스트</h3>
+                <p>제목 계층, 내부 링크, 이미지 대체 텍스트, 폼 label 연결을 전수 점검합니다.</p>
+            </article>
+
+            <!-- [article: 떼어내도 온전히 이해 가능한 독립형 자료 카드 2]            -->
+            <article>
+                <h3>CSS 레이아웃 가이드</h3>
+                <p>박스 모델 여백, Flexbox 정렬 기법, 반응형 미디어 쿼리 원리를 학습합니다.</p>
+            </article>
+
+            <!-- [article: 떼어내도 온전히 이해 가능한 독립형 자료 카드 3]            -->
+            <article>
+                <h3>브라우저 개발자 도구 (F12)</h3>
+                <p>Elements 탭에서 DOM 트리 구조를 확인하고 Network 탭에서 404 자원을 추적합니다.</p>
+            </article>
+        </section>
+
+        <!-- ------------------------------------------------------------------- -->
+        <!-- Section 4. 자주 묻는 질문 (FAQ) 구역                                 -->
+        <!-- ------------------------------------------------------------------- -->
+        <section id="faq">
+            <h2>자주 묻는 질문</h2>
+            <article>
+                <h3>비전공자도 실습을 따라갈 수 있나요?</h3>
+                <p>빈 파일 생성부터 브라우저 렌더링까지 단계별로 진행하므로 누구나 쉽게 참여할 수 있습니다.</p>
+            </article>
+        </section>
+
+        <!-- ------------------------------------------------------------------- -->
+        <!-- Section 5. 수강 신청서 및 사용자 데이터 입력 계약 구역               -->
+        <!-- ------------------------------------------------------------------- -->
+        <section id="signup">
+            <h2>수강 신청하기</h2>
+            <p>아래 정보를 입력하시면 신청이 완료됩니다. (키보드 Tab 키로 순차 이동 가능)</p>
+
+            <!-- [form: 하나의 완결된 비즈니스 트랜잭션 단위 (action, method)]        -->
+            <form action="#" method="post">
+                <!-- [fieldset: 관련 질문들을 그룹화하는 컨테이너]                     -->
+                <fieldset>
+                    <!-- [legend: 그룹 전체의 목적과 질문 제목 제공]                    -->
+                    <legend>신청자 인적사항 및 수강 트랙 선택</legend>
+
+                    <!-- [명시적 바인딩: label for와 input id를 1:1로 일치시킴]           -->
+                    <p>
+                        <label for="name">이름 *</label>
+                        <!-- [id: 문서 식별자, name: 서버 전송 Key, required: 브라우저 유효성 검증] -->
+                        <input type="text" id="name" name="name" placeholder="이름을 입력하세요" required>
+                    </p>
+
+                    <p>
+                        <label for="email">이메일 *</label>
+                        <!-- [type="email": 브라우저 이메일 형식 검증 및 모바일 @ 자판 유도] -->
+                        <input type="email" id="email" name="email" placeholder="example@domain.com" required>
+                    </p>
+
+                    <p>
+                        <label for="phone">연락처</label>
+                        <input type="tel" id="phone" name="phone" placeholder="010-1234-5678">
+                    </p>
+
+                    <p>
+                        <label for="course">관심 과정 *</label>
+                        <!-- [select + option: 화면 공간을 절약하는 정형 선택 컨트롤]       -->
+                        <select id="course" name="course" required>
+                            <option value="">강의를 선택해주세요</option>
+                            <option value="frontend">프론트엔드 웹 개발 트랙</option>
+                            <option value="backend">백엔드 클라우드 엔지니어링 트랙</option>
+                            <option value="data">실무 데이터 분석 트랙</option>
+                        </select>
+                    </p>
+
+                    <!-- [라디오 버튼: 동일한 name을 공유하여 상호 배타적 단일 선택 보장]   -->
+                    <p>
+                        <span>수강 형태: </span>
+                        <label><input type="radio" name="study_mode" value="online" checked> 온라인</label>
+                        <label><input type="radio" name="study_mode" value="offline"> 오프라인</label>
+                    </p>
+
+                    <!-- [체크박스: 독립적 다중 선택 및 필수 약관 동의]                   -->
+                    <p>
+                        <label>
+                            <input type="checkbox" name="agree" value="yes" required>
+                            개인정보 수집 및 웹 표준 실습 안내 사항에 동의합니다. (필수)
+                        </label>
+                    </p>
+
+                    <!-- [textarea: 여러 줄 장문 텍스트 입력 컨트롤]                       -->
+                    <p>
+                        <label for="message">문의 및 건의 내용</label>
+                        <textarea id="message" name="message" rows="4" placeholder="궁금한 내용을 자유롭게 입력하세요."></textarea>
+                    </p>
+
+                    <!-- [submit 버튼: form 전송 행동을 완료하는 트리거]                  -->
+                    <button type="submit">수강 신청하기</button>
+                </fieldset>
+            </form>
+        </section>
+
+    </main>
+
+    <!-- ===================================================================== -->
+    <!-- 3. FOOTER LANDMARK: 사이트의 꼬리말 (저작권, 약관, 문의처)              -->
+    <!-- ===================================================================== -->
+    <footer>
+        <p>
+            <a href="#notice">과정 소개</a> |
+            <a href="#schedule">학습 일정</a> |
+            <a href="https://developer.mozilla.org" target="_blank" rel="noopener noreferrer">MDN 웹 표준 문서</a>
+        </p>
+        <p>&copy; 2026 학습 포털 (Frontend Learning Portal). All rights reserved.</p>
+    </footer>
+
+</body>
+
+</html>
