@@ -1,83 +1,91 @@
+/* *: 웹페이지의 모든 요소에 적용 */
 * {
+  /* 패딩과 테두리를 요소의 전체 너비에 포함시켜서 크기 계산을 편하게 만들어줌 (국룰 설정) */
   box-sizing: border-box;
 }
 
 body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  line-height: 1.6;
-  color: #1e293b;
-  background: #f5f7fb;
+  margin: 0; /* 브라우저 기본 여백 없애기 */
+  font-family: Arial, sans-serif; /* 기본 폰트 설정 */
+  line-height: 1.6; /* 줄 간격을 1.6배로 넓혀서 읽기 편하게 */
+  color: #1e293b; /* 기본 글자 색 (짙은 회색) */
+  background: #f5f7fb; /* 전체 배경색 (연한 파란빛 도는 회색) */
 }
 
 img {
-  max-width: 100%;
-  display: block;
+  max-width: 100%; /* 이미지가 부모 요소보다 커져서 삐져나가는 걸 막아줌 */
+  display: block; /* 이미지 아래에 생기는 애매한 기본 여백 제거 */
 }
 
+/* 클래스 이름(class="site-header")을 꾸밀 땐 앞에 점(.)을 찍어 */
 .site-header {
-  background: #ffffff;
-  border-bottom: 1px solid #d9e2ec;
+  background: #ffffff; /* 흰색 배경 */
+  border-bottom: 1px solid #d9e2ec; /* 아래쪽에만 1픽셀 두께의 옅은 선 긋기 */
 }
 
+/* 콤마(,)로 여러 선택자를 한 번에 묶어서 똑같은 스타일 적용 */
 .header-inner,
 main {
+  /* 최대 1120px까지만 커지고, 화면이 작아지면 양옆 여백(총 32px)을 남기며 유연하게 줄어듦 */
   width: min(1120px, calc(100% - 32px));
-  margin: 0 auto;
+  margin: 0 auto; /* 요소를 화면 한가운데로 정렬 (가운데 정렬 국룰) */
 }
 
 .header-inner {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 24px;
-  padding: 22px 0;
+  display: flex; /* 요소들을 가로로 나란히 배치하는 최강의 레이아웃 도구 */
+  justify-content: space-between; /* 요소들을 양쪽 끝으로 쫙 밀어서 배치 */
+  align-items: center; /* 세로 기준 가운데 정렬 */
+  gap: 24px; /* 요소들 사이의 간격을 24px로 벌림 */
+  padding: 22px 0; /* 위아래 안쪽 여백 22px, 양옆은 0 */
 }
 
 .site-header h1 {
-  margin: 0;
+  margin: 0; /* h1의 기본 위아래 여백 제거 */
   font-size: 24px;
 }
 
 .site-nav {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: wrap; /* 창이 좁아져서 자리가 모자라면 다음 줄로 자연스럽게 넘김 */
   gap: 16px;
 }
 
+/* .site-nav 안에 있는 a 태그(링크)만 꾸밈 */
 .site-nav a {
-  color: #1d5fbf;
-  font-weight: 700;
-  text-decoration: none;
+  color: #1d5fbf; /* 파란색 */
+  font-weight: 700; /* 글씨 굵게 (bold) */
+  text-decoration: none; /* 링크 특유의 밑줄 없애기 */
 }
 
 .hero {
-  display: grid;
+  display: grid; /* 바둑판처럼 구역을 나눠서 배치하는 레이아웃 도구 */
+  /* 가로로 2칸 나눔. 왼쪽은 남는 공간 다 쓰고(1fr), 오른쪽은 320px~0.9fr 사이에서 유연하게 조절 */
   grid-template-columns: minmax(0, 1fr) minmax(320px, 0.9fr);
   gap: 28px;
   align-items: center;
   padding: 40px 0 28px;
 }
 
+/* 카드처럼 생긴 둥글고 하얀 박스들의 공통 스타일을 한 번에 묶음 */
 .hero-copy,
 .hero-media,
 .section,
 .card,
 .apply-form fieldset {
-  border: 1px solid #d9e2ec;
-  border-radius: 8px;
-  background: #ffffff;
+  border: 1px solid #d9e2ec; /* 테두리 */
+  border-radius: 8px; /* 모서리를 둥글게 (8px 만큼) */
+  background: #ffffff; /* 흰색 배경 */
 }
 
 .hero-copy,
 .hero-media,
 .section {
-  padding: 28px;
+  padding: 28px; /* 박스 안쪽 여백 */
 }
 
 .hero h2,
 .section h2 {
-  margin: 0 0 12px;
+  margin: 0 0 12px; /* 위 0, 양옆 0, 아래 12px 여백 */
 }
 
 .eyebrow {
@@ -95,27 +103,27 @@ main {
 }
 
 .timeline {
-  display: grid;
+  display: grid; /* 리스트를 그리드로 만들어서 항목 간격 조절 */
   gap: 10px;
   padding-left: 24px;
 }
 
 .timeline li {
   padding: 10px 12px;
-  border-left: 4px solid #1d5fbf;
+  border-left: 4px solid #1d5fbf; /* 왼쪽에만 굵은 파란 선을 그어서 강조 포인트 만듦 */
   background: #f8fbff;
 }
 
 .result-table {
-  width: 100%;
+  width: 100%; /* 표가 화면에 꽉 차게 */
   margin-top: 20px;
-  border-collapse: collapse;
+  border-collapse: collapse; /* 표의 셀(칸)들 사이에 겹치는 테두리를 한 줄로 합쳐줌 깔끔하게 */
 }
 
 .result-table caption {
   margin-bottom: 8px;
   font-weight: 700;
-  text-align: left;
+  text-align: left; /* 글자 왼쪽 정렬 */
 }
 
 .result-table th,
@@ -126,11 +134,12 @@ main {
 }
 
 .result-table th {
-  background: #eef4fc;
+  background: #eef4fc; /* 표 제목 칸만 연한 파란색 배경 */
 }
 
 .card-grid {
   display: grid;
+  /* 똑같은 너비의 칸을 3개 만듦 (카드 3장이 한 줄에 나란히 배치됨) */
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 16px;
 }
@@ -145,7 +154,7 @@ main {
 
 .apply-form fieldset {
   display: grid;
-  gap: 10px;
+  gap: 10px; /* 폼 안의 입력칸들 사이 간격 조절 */
   margin: 0;
   padding: 24px;
 }
@@ -155,6 +164,7 @@ main {
   font-weight: 700;
 }
 
+/* 폼 요소들은 브라우저 기본 폰트를 쓰려는 고집이 있어서, 억지로 부모 폰트(body)를 따라가게 만듦 */
 input,
 select,
 textarea,
@@ -171,55 +181,58 @@ textarea {
   border-radius: 6px;
 }
 
+/* :focus -> 마우스로 클릭하거나 키보드로 선택해서 커서가 깜빡일 때의 상태 */
 input:focus,
 select:focus,
 textarea:focus {
-  outline: 3px solid #cfe1ff;
+  outline: 3px solid #cfe1ff; /* 바깥쪽에 파란색 외곽선 띄움 */
   border-color: #1d5fbf;
 }
 
 .check-line {
   display: flex;
-  align-items: center;
+  align-items: center; /* 체크박스와 글씨의 세로 높이를 예쁘게 맞춰줌 */
   gap: 8px;
 }
 
 .check-line input {
-  width: auto;
+  width: auto; /* 체크박스는 100%로 늘어나면 안 되니까 본래 크기로 돌림 */
 }
 
 button {
-  width: fit-content;
-  border: 0;
+  width: fit-content; /* 글자 길이에 딱 맞게 너비를 줄임 */
+  border: 0; /* 기본 테두리 제거 */
   border-radius: 6px;
   padding: 10px 16px;
   color: #ffffff;
   background: #1d5fbf;
-  cursor: pointer;
+  cursor: pointer; /* 마우스를 올리면 손가락 모양으로 바뀜 */
 }
 
+/* :hover -> 마우스 포인터를 버튼 위에 올려뒀을 때의 상태 */
 button:hover {
-  background: #164b96;
+  background: #164b96; /* 마우스 올리면 배경색을 살짝 더 어둡게 해서 누르는 맛을 줌 */
 }
 
 .site-footer {
   padding: 28px 16px;
   color: #64748b;
-  text-align: center;
+  text-align: center; /* 글자 가운데 정렬 */
 }
 
+/* @media: 미디어 쿼리. 화면 너비가 840px 이하(모바일/태블릿)가 되면 괄호 안의 코드가 덮어씌워짐 (반응형 웹) */
 @media (max-width: 840px) {
   .header-inner,
   .hero {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr; /* 가로로 나란히 있던 것들을 한 줄(1칸)로 바꿔서 세로로 쌓이게 함 */
   }
 
   .header-inner {
-    align-items: flex-start;
-    flex-direction: column;
+    align-items: flex-start; /* 모바일이 되면 가운데 정렬 풀고 왼쪽으로 붙임 */
+    flex-direction: column; /* flex 배치 방향을 가로에서 세로로 바꿈 */
   }
 
   .card-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr; /* 카드 3장 나란히 있던 것도 세로로 1장씩 쌓이게 바꿈 */
   }
 }
