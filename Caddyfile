@@ -1,0 +1,20 @@
+localhost {
+	root * http
+	@apiGet {
+		path /api/*
+		method GET
+	}
+	handle @apiGet {
+		header Allow "POST"
+		respond "Method Not Allowed" 405
+	}
+	@apiPost {
+		path /api/*
+		method POST
+	}
+	handle @apiPost {
+		method GET
+		file_server
+	}
+	file_server
+}

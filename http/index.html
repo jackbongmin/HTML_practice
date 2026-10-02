@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Ajax 예제</title>
+    <script src="https://code.jquery.com/jquery-4.0.0.min.js"></script>
+</head>
+
+<body>
+
+    <button id="loadBtn">사용자 목록 불러오기</button>
+
+    <ul id="userList"></ul>
+
+    <script>
+        $(function () {
+
+            $('#loadBtn').on('click', function () {
+
+                $.ajax({
+                    url: '/api/users.json',
+                    method: 'GET',
+                    dataType: 'json',
+
+                    success: function (data) {
+                        let html = '';
+
+                        $.each(data, function (i, user) {
+                            html += '<li>'
+                                + user.name
+                                + ' ('
+                                + user.email
+                                + ')</li>';
+                        });
+
+                        $('#userList').html(html);
+                    },
+
+                    error: function () {
+                        $('#userList').html(
+                            '<li>데이터를 불러오지 못했습니다.</li>'
+                        );
+                    }
+                });
+
+            });
+
+        });
+    </script>
+
+</body>
+
+</html>
