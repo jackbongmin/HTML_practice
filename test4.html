@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <title>실습4번</title>
+
+</head>
+
+<body>
+    <style>
+        .done {
+            text-decoration: line-through;
+        }
+    </style>
+    <span id="taskText">HTML 복습하기</span>
+    <button id="completeButton" type="button">완료</button>
+    <script>
+        const text = document.getElementById("taskText");
+        const button = document.getElementById("completeButton");
+        button.addEventListener("click", function () {
+            text.classList.toggle("done");
+            const completed = text.classList.contains("done");
+            button.textContent = completed ? "완료 취소" : "완료";
+        });
+    </script>
+</body>
+
+</html>

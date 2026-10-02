@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <title>10번</title>
+</head>
+<body>
+    <input id="taskInput" type="text">
+    <button id="addButton" type="button">추가</button>
+    <ul id="taskList"></ul>
+
+    <script>
+        document.getElementById('addButton').addEventListener('click', function() {
+            
+            const input = document.getElementById('taskInput');
+            const taskList = document.getElementById('taskList');
+            
+            const taskValue = input.value.trim();
+            
+
+            if (taskValue !== '') {
+                const li = document.createElement('li');
+                li.textContent = taskValue;
+                taskList.appendChild(li);
+                
+                input.value = '';
+            }
+        });
+    </script>
+</body>
+</html>

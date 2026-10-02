@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+
+</head>
+
+<body>
+    <p id="summary"></p>
+    <script>
+        const tasks = [
+            { title: "HTML 복습", done: true },
+            { title: "CSS 복습", done: false },
+            { title: "JavaScript 복습", done: true }
+        ];
+        const total = tasks.length;
+        const completed = tasks.filter(function (task) {
+            return task.done === true;
+        }).length;
+        document.getElementById("summary").textContent =
+            "전체: " + total + "개 / 완료: " + completed + "개";
+    </script>
+</body>
+
+</html>
